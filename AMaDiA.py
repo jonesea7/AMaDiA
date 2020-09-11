@@ -150,9 +150,9 @@ def AltGr_Shift_Shortcut(Symbol):
         keyboard.press("shift")
     else:
         print("Could not load External_Libraries.keyboard_master.keyboard")
-def Superscript_Shortcut(Symbol):
+def Superscript_Shortcut(Symbol): # this is the function that is connected to super script functionality?
     if Keyboard_Remap_Works:
-        #keyboard.write("\x08")
+        #keyboard.write("\x08") #why is this commented out by the author
         keyboard.write(Symbol)
         keyboard.write(" ")
         keyboard.write("\x08")
@@ -160,12 +160,12 @@ def Superscript_Shortcut(Symbol):
         print("Could not load External_Libraries.keyboard_master.keyboard")
 
 #region ---------------------------------- Windows ----------------------------------
-class AMaDiA_Internal_File_Display_Window(AWWF):
-    def __init__(self,FileName,parent = None):
+class AMaDiA_Internal_File_Display_Window(AWWF): # what is this AWWF Parameter?
+    def __init__(self,FileName,parent = None): # is this setting the parameters as none as it is being called in the function as a parameter? if so that is dope!
         try:
             super(AMaDiA_Internal_File_Display_Window, self).__init__(parent,True)
             self.setWindowTitle(FileName)
-            self.standardSize = (900, 500)
+            self.standardSize = (900, 500) # is this in pixels? REM? vh/vw? what is the measurement?
             self.resize(*self.standardSize)
             self.setWindowIcon(QtWidgets.QApplication.style().standardIcon(QtWidgets.QStyle.SP_FileDialogInfoView))
                 
