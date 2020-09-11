@@ -188,21 +188,21 @@ class AMaDiA_Internal_File_Display_Window(AWWF): # what is this AWWF Parameter?
         except common_exceptions:
             ExceptionOutput(sys.exc_info())
 
-    def load(self,FileName):
+    def load(self,FileName): # this is the load function with parameters of self and FileName
         try:
-            if "Patchlog" in FileName:
-                self.setWindowTitle("Patchlog")
-                #self.FolderPath = os.path.dirname(__file__)
-                FileName = os.path.join(QtWidgets.QApplication.instance().FolderPath,FileName)
-                with open(FileName,'r',encoding="utf-8") as text_file:
-                    Text = text_file.read()
+            if "Patchlog" in FileName: # use this string to determine what the FileName is
+                self.setWindowTitle("Patchlog") # this sets what is displayed as the title?
+                #self.FolderPath = os.path.dirname(__file__) why is this commented out is this a bug fix
+                FileName = os.path.join(QtWidgets.QApplication.instance().FolderPath,FileName) # this has a function and a FileName as it's parameters
+                with open(FileName,'r',encoding="utf-8") as text_file: # open FileName with str parameter or 'r' and with specific encoding and set it as a var called text_file
+                    Text = text_file.read() #is a var with a read() method to capture what is in the text of the file that is opened in the above line?
                 
                 List = re.split(r"\nv(0.+):(.+)", Text)
                 
-                NList = []
+                NList = [] # this is an empty array container!!!!
                 i=1
                 while i < len(List):
-                    NList.append([List[i],"v"+List[i]+":"+List[i+1],List[i+2]])
+                    NList.append([List[i],"v"+List[i]+":"+List[i+1],List[i+2]]) #this has three parameters
                     i+=3
                 text = ""
                 for i in reversed(NList):
